@@ -1,0 +1,14 @@
+{
+  "name": "assignment3_part2",
+  "version": "1.0.0",
+  "description": "DevOps Assignment3 Part2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Deneb Villanueva",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
