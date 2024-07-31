@@ -1,5 +1,8 @@
 pipeline {
   environment {
+    DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
+    DOCKER_HUB_REPO = 'denebarc@gmail.com/c0872334_assignment3_csd4503'
+    DOCKER_IMAGE_TAG = 'latest'
     imagename = "denebarc/c0872334-assignment-4"
     registryCredential = 'dockerhubaccount'
     dockerImage = ''
@@ -15,17 +18,18 @@ pipeline {
     stage('Build docker image') {
       steps{
         script {
-          dockerImage = docker.build imagename
+          docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
+            dockerImage = docker.build("${DOCKER_HUB_REPO}:${DOCKER_IMAGE_TAG}")
+          }
         }
       }
     }
     stage('Deploy Docker Image') {
       steps{
         script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push("$BUILD_NUMBER")
-            dockerImage.push('latest')
-          }
+          docker.withRegistry('https://index.docker.io/v1/', DOCKER_HUB_CREDENTIALS) {
+            dockerImage.push()
+            }
         }
       }
     }
