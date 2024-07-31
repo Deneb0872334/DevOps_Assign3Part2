@@ -1,7 +1,7 @@
 pipeline {
   environment {
     DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
-    DOCKER_HUB_REPO = 'denebarc@gmail.com/c0872334_assignment3_csd4503'
+    DOCKER_HUB_REPO = 'denebarc/c0872334_assignment3_csd4503'
     DOCKER_IMAGE_TAG = 'latest'
     imagename = "denebarc/c0872334-assignment-4"
     registryCredential = 'dockerhubaccount'
