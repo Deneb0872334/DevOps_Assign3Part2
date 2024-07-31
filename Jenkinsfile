@@ -1,11 +1,13 @@
 pipeline {
+  agent any
+
   environment {
     DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
     DOCKER_HUB_REPO = 'denebarc/c0872334_assignment3_csd4503'
     DOCKER_IMAGE_TAG = 'latest'
     imagename = "denebarc/c0872334-assignment-4"
   }
-  agent any
+
   stages {
     stage('Cloning Git') {
       steps {
