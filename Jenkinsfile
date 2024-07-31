@@ -4,8 +4,6 @@ pipeline {
     DOCKER_HUB_REPO = 'denebarc/c0872334_assignment3_csd4503'
     DOCKER_IMAGE_TAG = 'latest'
     imagename = "denebarc/c0872334-assignment-4"
-    registryCredential = 'dockerhubaccount'
-    dockerImage = ''
   }
   agent any
   stages {
